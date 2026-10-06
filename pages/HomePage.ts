@@ -8,4 +8,7 @@ export class HomePage{
     async verifyDashboard(){
         return await this.page.getByRole('heading', {name:'Dashboard'}).isVisible();
     }
+    async clickOnAdmin(){
+        await this.page.getByRole('link',{name: 'Admin'}).click();
+    }
 }
