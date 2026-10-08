@@ -27,7 +27,7 @@ test.describe("Describe block",()=>{
 
 })
 
-test('User select empyoyee name in Admin pannel',async({page})=>{
+test('User select empyoyee name in Admin pannel @smoke',async({page})=>{
      let homePage=new HomePage(page);
      await homePage.clickOnAdmin();
      await page.waitForLoadState('networkidle');
