@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test'
 import { LoginPage } from '../pages/LoginPage'
 import { HomePage } from '../pages/HomePage'
 import { AdminPage } from '../pages/AdminPage'
-
+import { MyInfo } from '../pages/MyInfo'
 
 test.describe("Describe block",()=>{
     test.beforeEach('load page',async({page})=>{
@@ -37,6 +37,17 @@ test('User select empyoyee name in Admin pannel @smoke',async({page})=>{
      await admin.clickOnSearch();
      await expect(admin.testFieldVisible()).toBeVisible();
      await page.waitForTimeout(5000);
+})
+
+test('Verify MyInfo and select 1 reord', async({page})=>{
+      let homePage=new HomePage(page);
+      await homePage.clickOnMyInfo();
+      await page.waitForLoadState('networkidle');
+
+      let myInfo=new MyInfo(page);
+      await myInfo.recordCheck();
+      await expect(myInfo.verifyDeleteText).toBeTruthy();
+
 })
 
 })

@@ -11,4 +11,7 @@ export class HomePage{
     async clickOnAdmin(){
         await this.page.getByRole('link',{name: 'Admin'}).click();
     }
+        async clickOnMyInfo(){
+        await this.page.getByRole('link',{name: 'My Info'}).click();
+    }
 }

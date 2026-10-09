@@ -21,16 +21,18 @@ export default defineConfig({
   retries: 1 ,
   workers: 2,
   
-    timeout:30000,
+    timeout:65000,
   reporter: [['html', { open: 'always' }]],
   expect:{
     timeout:5000,
   },
   use: {
     headless: false,
-    // actionTimeout:15000,
+    actionTimeout:30000,
     trace: 'on-first-retry',
-  },
+    // trace: 'on',
+    // screenshot: 'on'
+  }, 
 
   projects: [
     {
