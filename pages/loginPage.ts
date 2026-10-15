@@ -1,7 +1,8 @@
-import {Page} from '@playwright/test'
+import {Page, Locator} from '@playwright/test'
 
 export class LoginPage{
     readonly page:Page;
+
 
     constructor(page:Page){
         this.page=page;
@@ -17,4 +18,9 @@ export class LoginPage{
         await this.page.getByRole('button',{name:'Login'}).click();
     }
 
+     invalidCred():Locator{
+        return this.page.getByText('Invalid credentials');
+    }
+
 }
+

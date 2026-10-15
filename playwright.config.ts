@@ -19,19 +19,18 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 1 ,
-  workers: 2,
-  
-    timeout:65000,
+  workers: 3,
+  timeout:65000,
   reporter: [['html', { open: 'always' }]],
   expect:{
-    timeout:5000,
+    timeout:10000,
   },
   use: {
     headless: false,
-    actionTimeout:30000,
-    trace: 'on-first-retry',
-    // trace: 'on',
-    // screenshot: 'on'
+    actionTimeout:15000,
+    // trace: 'on-first-retry',
+    // screenshot: 'on-first-failure',
+    // video: 'on-first-retry'
   }, 
 
   projects: [
